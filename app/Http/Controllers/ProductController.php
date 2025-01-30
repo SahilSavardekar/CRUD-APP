@@ -48,7 +48,6 @@ class ProductController extends Controller
 
     public function store(Request $request)
     {
-        // dd($request);
 
         $products = $this->productRepository->storeProducts($request);
 
@@ -93,12 +92,6 @@ class ProductController extends Controller
 
     public function getActive()
     {
-        // $products = Products::query()->where('deleted_at', null)->get();
-
-        // $products2 = Products::query()->where('deleted_at', '>', now())->get();
-
-        // $products = Products::query()->get();
-
         $products = Products::find(1);
 
         dd($products->getProduct());
@@ -125,7 +118,6 @@ class ProductController extends Controller
     {
         $entry = Products::onlyTrashed()->find($id);
 
-        // dd($entry);
         event(new deleteProduct($entry));
 
         if ($entry) {
