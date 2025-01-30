@@ -57,8 +57,6 @@ class UserController extends Controller
             'password' => 'required|string',
         ]);
 
-        // dd($credentials);
-
         if (Auth::attempt($credentials)) {
 
             $request->session()->regenerate();
@@ -68,7 +66,7 @@ class UserController extends Controller
             return redirect('/login')->with("error", "Failed to Login, Please Check the Credentials");
         }
 
-        // Log::warning('Invalid Crdentials');
+        Log::warning('Invalid Crdentials');
 
         return redirect()->route('login.get')->with("error", "Failed to Login, Please Check the Credentials");
     }
