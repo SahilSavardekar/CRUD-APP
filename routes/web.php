@@ -19,21 +19,14 @@ Route::middleware(['auth'])->group(
     }
 );
 
-// Route::get('/product', [ProductController::class, 'index'])->name('products.index');
-
-// Route::get('/product/create', [ProductController::class, 'create'])->name('products.create');
-
 Route::post('/product', [ProductController::class, 'store'])->name('products.store');
 
-// Route::get('/product/{product}/edit', [ProductController::class, 'edit'])->name('products.edit');
 
 Route::put('/product/{product}/update', [ProductController::class, 'update'])->name('products.update');
 
-// Route::delete('/product/{product}/delete', [ProductController::class, 'delete'])->name('products.delete');
 
 Route::get('/active', [ProductController::class, 'activeRecords'])->name('products.active');
 
-// Route::get('/trash', [ProductController::class, 'trashedRecords'])->name('products.trash');
 
 Route::get('/trigger', [ProductController::class, 'triggerEvent'])->name('products.trigger');
 
